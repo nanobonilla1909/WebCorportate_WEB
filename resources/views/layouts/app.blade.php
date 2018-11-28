@@ -15,9 +15,6 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
-    <!-- CSS Files -->
-    {{--  <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/material-kit.css') }}" rel="stylesheet"/>  --}}
 
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/material-kit.css" rel="stylesheet"/>
@@ -39,7 +36,7 @@
 
                 <a class="navbar-brand" href="{{ url('/') }}">
 
-                     <img src="img/logo_shopgallery.svg" height="100%" sizes="max-width:300px" class="logo align-self">
+                     <img src="./img/logo_shopgallery.svg" height="100%" sizes="max-width:300px" class="logo align-self">
                 </a>
 
             </div>
@@ -56,6 +53,24 @@
                             @endif
                         </li>
                     @else
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Productos
+                              <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Gestionar Productos</a>
+                              <br>
+                              <a class="dropdown-item" href="#">Recomendados</a>
+
+                            </div>
+                        </li>
+
+                        <li><a href="/products">Productos</a></li>
+                        <li><a href="/product_categories">Categorías</a></li>
+                        <li><a href="/product_types">Tipos de Producto</a></li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -67,6 +82,7 @@
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Cerrar Sesión') }}
                                 </a>
+
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
